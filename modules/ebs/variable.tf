@@ -1,14 +1,19 @@
 variable "ebs_zone" {
-  
-}
-variable "ebs_size" {
-    default = 50
-    type = number
+  type = string 
+  default = "us-east-1a"
+  description = "The Availability Zone of the EBS volume"
 }
 
-variable "ebs_tags" {
-  type = map
+variable "ebs_size" {
+  type = number
+  default = 8
+  description = "The size of the EBS volume in GiB"
+}
+
+variable "ebs_tag" {
+  type = map 
   default = {
-    "Name" = "ebs_volume"
+    Name = "ebs-volume"
   }
+  description = "The tags for the EBS volume"
 }
