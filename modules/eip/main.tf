@@ -1,8 +1,7 @@
 resource "aws_eip" "eip" {
+  # domain = "vpc"
   provisioner "local-exec" {
-    command = "echo ${aws_eip.eip.public_ip} > ip_address.txt"
+    command = "echo The public IP address is ${aws_eip.eip.public_ip} >> ip_ec2.txt"
   }
-  tags = {
-    Name = "var.eip_name"
-  }
+  tags = var.eip_tag
 }
